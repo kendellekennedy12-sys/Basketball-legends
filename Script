@@ -1,5 +1,3 @@
-local SOURCE = [[
-
 --local Players = game:GetService("Players")
 local TweenService = game:GetService("TweenService")
 local HttpService = game:GetService("HttpService")
@@ -1257,20 +1255,3 @@ Library:OnUnload(function()
     disableAnimationSpoof()
 end)
 
-]]
-
-local function decode(s)
-    local t = {}
-    for i = 1, #s do
-        t[i] = string.char(string.byte(s, i))
-    end
-    return table.concat(t)
-end
-
-local success, err = pcall(function()
-    loadstring(decode(SOURCE))()
-end)
-
-if not success then
-    warn("PhantomHub failed to load:", err)
-end
